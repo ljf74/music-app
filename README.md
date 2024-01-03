@@ -8,6 +8,7 @@
 ### Currently my project cant support in China mainland due to icons problem, in the future I will try to address it maybe passing by change icons providers like [FontAwesome](https://fontawesome.com).
 ### Secondly due to time limitation I don't guarantee ecery picture is unique so you can replace your favorite picture after you forked it.
 ### Thirdly, the playlist cant continue playing when one song was ended and other problem about icon replacement.
+### It cant support for mobile phone and need to restyle the layout.
 
 ### References:
 [icons](https://icons.getbootstrap.com)

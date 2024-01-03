@@ -43,21 +43,21 @@ let wave = document.getElementsByClassName('wave')[0];
 masterPlay.addEventListener('click', () => {
     if (music.paused || music.currentTime <= 0) {
         music.play();
-        masterPlay.classList.remove('bi-play-fill');
-        masterPlay.classList.add('bi-pause-fill');
+        masterPlay.classList.remove('fa-play');
+        masterPlay.classList.add('fa-pause');
         wave.classList.add('active2');
     } else {
         music.pause();
-        masterPlay.classList.add('bi-play-fill');
-        masterPlay.classList.remove('bi-pause-fill');
+        masterPlay.classList.add('fa-play');
+        masterPlay.classList.remove('fa-pause');
         wave.classList.remove('active2');
     }
 });
 
 const musicPlayer = () => {
   Array.from(document.getElementsByClassName('playlistPlay')).forEach((element) => {
-        element.classList.add('bi-play-circle-fill');
-        element.classList.remove('bi-pause-circle-fill');
+        element.classList.add('fa-circle-play');
+        element.classList.remove('fa-circle-pause');
   });
 }
 
@@ -75,8 +75,8 @@ Array.from(document.getElementsByClassName('playlistPlay')).forEach((element) =>
   element.addEventListener('click', (e) => {
       index = e.target.id;
       musicPlayer();
-      e.target.classList.remove('bi-play-circle-fill');
-      e.target.classList.add('bi-pause-circle-fill');
+      e.target.classList.remove('fa-circle-play');
+      e.target.classList.add('fa-circle-pause');
       music.src = `audio/${index}.mp3`;
       poster_master_play.src = `img/${index}.jpg`
       music.play();
@@ -127,8 +127,8 @@ seek.addEventListener('change', () => {
 })
 
 music.addEventListener('ended', () => {
-  masterPlay.classList.add('bi-play-fill');
-  masterPlay.classList.remove('bi-pause-fill');
+  masterPlay.classList.add('fa-play');
+  masterPlay.classList.remove('fa-pause');
   wave.classList.remove('active2');
 })
 
@@ -139,21 +139,21 @@ let vol_bar = document.getElementsByClassName('vol_bar')[0];
 
 vol.addEventListener('change', () => {
   if (vol.value == 0) {
-    vol_icon.classList.remove('bi-volume-down-fill');
-    vol_icon.classList.add('bi-volume-mute-fill');
-    vol_icon.classList.remove('bi-volume-up-fill');
+    vol_icon.classList.remove('fa-volume-low');
+    vol_icon.classList.add('fa-volume-xmark');
+    vol_icon.classList.remove('fa-volume-high');
   }
 
   if (vol.value > 0) {
-    vol_icon.classList.add('bi-volume-down-fill');
-    vol_icon.classList.remove('bi-volume-mute-fill');
-    vol_icon.classList.remove('bi-volume-up-fill');
+    vol_icon.classList.add('fa-volume-low');
+    vol_icon.classList.remove('fa-volume-xmark');
+    vol_icon.classList.remove('fa-volume-high');
   }
 
   if (vol.value > 50) {
-    vol_icon.classList.remove('bi-volume-down-fill');
-    vol_icon.classList.remove('bi-volume-mute-fill');
-    vol_icon.classList.add('bi-volume-up-fill');
+    vol_icon.classList.remove('fa-volume-low');
+    vol_icon.classList.remove('fa-volume-xmark');
+    vol_icon.classList.add('fa-volume-high');
   }
 
   let vol_a = vol.value;
@@ -173,13 +173,13 @@ back.addEventListener('click', () => {
   music.src = `audio/${index}.mp3`;
   poster_master_play.src = `img/${index}.jpg`;
   musicPlayer();
+  masterPlay.classList.add('fa-pause');
+  masterPlay.classList.remove('fa-play');
   let curr1 = document.getElementsByClassName('playlistPlay')[index-1];
-  curr1.classList.remove('bi-play-circle-fill');
-  curr1.classList.add('bi-pause-circle-fill');
+  curr1.classList.remove('fa-circle-play');
+  curr1.classList.add('fa-circle-pause');
   music.play();
   title.innerHTML = songs[index-1]['songName'];
-  masterPlay.classList.add('bi-pause-fill');
-  masterPlay.classList.remove('bi-play-fill');
   wave.classList.add('active2');
   musicPlayergrounds();
   let curr = `s${index}`;
@@ -196,13 +196,13 @@ next.addEventListener('click', () => {
   music.src = `audio/${index}.mp3`;
   poster_master_play.src = `img/${index}.jpg`;
   musicPlayer();
+  masterPlay.classList.add('fa-pause');
+  masterPlay.classList.remove('fa-play');
   let curr1 = document.getElementsByClassName('playlistPlay')[index-1];
-  curr1.classList.remove('bi-play-circle-fill');
-  curr1.classList.add('bi-pause-circle-fill');
+  curr1.classList.remove('fa-circle-play');
+  curr1.classList.add('fa-circle-pause');
   music.play();
   title.innerHTML = songs[index-1]['songName'];
-  masterPlay.classList.add('bi-pause-fill');
-  masterPlay.classList.remove('bi-play-fill');
   wave.classList.add('active2');
   musicPlayergrounds();
   let curr = `s${index}`;
